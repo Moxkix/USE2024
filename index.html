@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Aula de Examen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #form {
+            margin-top: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta de Aula de Examen</h1>
+    <div id="form">
+        <label for="courseCode">Introduce el código de la asignatura:</label>
+        <input type="text" id="courseCode" name="courseCode">
+        <button onclick="findClassroom()">Consultar Aula</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        async function findClassroom() {
+            const courseCode = document.getElementById('courseCode').value.trim();
+            const resultDiv = document.getElementById('result');
+
+            if (courseCode === "") {
+                resultDiv.textContent = "Por favor, introduce un código de asignatura.";
+                return;
+            }
+
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                const classroom = data[courseCode.toUpperCase()];
+
+                if (classroom) {
+                    resultDiv.textContent = `El examen de ${courseCode} es en ${classroom}.`;
+                } else {
+                    resultDiv.textContent = "Código de asignatura no encontrado.";
+                }
+            } catch (error) {
+                resultDiv.textContent = "Error al consultar los datos.";
+            }
+        }
+    </script>
+</body>
+</html>
