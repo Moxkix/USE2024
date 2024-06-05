@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta de Aula de Examen</title>
+    <title>Azterketa-gela kontsultatu / Consulta de Aula de Examen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,11 +18,11 @@
     </style>
 </head>
 <body>
-    <h1>Consulta de Aula de Examen</h1>
+    <h1>Azterketa-gela kontsultatu / Consulta de Aula de Examen</h1>
     <div id="form">
-        <label for="courseCode">Introduce el código de la asignatura:</label>
+        <label for="courseCode">Sartu irakasgaiaren kodea / Introduce el código de la asignatura:</label>
         <input type="text" id="courseCode" name="courseCode">
-        <button onclick="findClassroom()">Consultar Aula</button>
+        <button onclick="findClassroom()">Gela kontsultatu / Consultar Aula</button>
     </div>
     <div id="result"></div>
 
@@ -42,12 +42,12 @@
                 const entry = data[courseCode.toUpperCase()];
 
                 if (entry) {
-                    resultDiv.textContent = `Asignatura: ${entry.asignatura}, Aula: ${entry.aula}`;
+                    resultDiv.textContent = `Ikasgaia / Asignatura: ${entry.asignatura}, Aula: ${entry.aula}`;
                 } else {
-                    resultDiv.textContent = "Código de asignatura no encontrado.";
+                    resultDiv.textContent = "Ikasgaiaren Kodea ez da aurkitu / Código de asignatura no encontrado.";
                 }
             } catch (error) {
-                resultDiv.textContent = "Error al consultar los datos.";
+                resultDiv.textContent = "Errorea datuak kontsultatzean / Error al consultar los datos.";
             }
         }
     </script>
