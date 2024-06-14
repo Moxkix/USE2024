@@ -3,53 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azterketa-gela kontsultatu / Consulta de Aula de Examen</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        #form {
-            margin-top: 20px;
-        }
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+    <title>Consulta de Aula de Examen</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Azterketa-gela kontsultatu / Consulta de Aula de Examen</h1>
-    <div id="form">
-        <label for="courseCode">Sartu irakasgaiaren kodea / Introduce el código de la asignatura:</label>
-        <input type="text" id="courseCode" name="courseCode">
-        <button onclick="findClassroom()">Gela kontsultatu / Consultar Aula</button>
+    <div class="container">
+        <h1>Consulta de Aula de Examen</h1>
+        <div id="form">
+            <label for="courseCode">Introduce el código de la asignatura:</label>
+            <input type="text" id="courseCode" name="courseCode" required>
+            <button onclick="findClassroom()">Consultar Aula</button>
+        </div>
+        <div id="result"></div>
     </div>
-    <div id="result"></div>
-
-    <script>
-        async function findClassroom() {
-            const courseCode = document.getElementById('courseCode').value.trim();
-            const resultDiv = document.getElementById('result');
-
-            if (courseCode === "") {
-                resultDiv.textContent = "Por favor, introduce un código de asignatura.";
-                return;
-            }
-
-            try {
-                const response = await fetch('asignaturas_aulas.json');
-                const data = await response.json();
-                const entry = data[courseCode.toUpperCase()];
-
-                if (entry) {
-                    resultDiv.textContent = `Ikasgaia / Asignatura: ${entry.asignatura}, Aula: ${entry.aula}`;
-                } else {
-                    resultDiv.textContent = "Ikasgaiaren Kodea ez da aurkitu / Código de asignatura no encontrado.";
-                }
-            } catch (error) {
-                resultDiv.textContent = "Errorea datuak kontsultatzean / Error al consultar los datos.";
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
