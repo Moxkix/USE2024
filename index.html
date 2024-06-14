@@ -8,17 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="title">Consulta de Aula de Examen</h1>
+        <h1>Consulta de Aula de Examen / Azterketa Gelaren Kontsulta</h1>
         <div id="form">
-            <label for="courseCode" id="labelCourseCode">Introduce el código de la asignatura:</label>
+            <label for="courseCode">Introduce el código de la asignatura / Sartu irakasgaiaren kodea:</label>
             <input type="text" id="courseCode" name="courseCode" required>
-            <button onclick="findClassroom()" id="btnSubmit">Consultar Aula</button>
+            <button onclick="findClassroom()">Consultar Aula / Kontsultatu Gela</button>
         </div>
         <div id="result"></div>
-        <div class="language-switch">
-            <button onclick="setLanguage('es')">Español</button>
-            <button onclick="setLanguage('eu')">Euskera</button>
-        </div>
     </div>
     <script src="script.js"></script>
 </body>
