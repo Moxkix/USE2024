@@ -16,6 +16,7 @@ body {
     text-align: center;
     width: 80%;
     max-width: 400px;
+    box-sizing: border-box;
 }
 
 .logo {
@@ -36,14 +37,16 @@ h1 {
 label {
     display: block;
     margin-bottom: 10px;
+    text-align: center;  /* Centramos el texto del label */
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 100%;  /* Aseguramos que el input ocupe todo el ancho disponible */
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 button {
@@ -53,6 +56,8 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;  /* Aseguramos que el botón ocupe todo el ancho disponible */
+    box-sizing: border-box;
 }
 
 button:hover {
