@@ -13,7 +13,7 @@ async function findClassroom() {
         const entry = data[courseCode.toUpperCase()];
 
         if (entry) {
-            resultDiv.textContent = `Asignatura / Ikasgaia: ${entry.asignatura}, Aula: ${entry.aula}`;
+            resultDiv.textContent = `Asignatura / Ikasgaia: ${entry.asignatura}, Gela / Aula: ${entry.aula}`;
         } else {
             resultDiv.textContent = "Código de asignatura no encontrado / Irakasgaiaren kodea ez da aurkitu.";
         }
