@@ -1,9 +1,35 @@
+const translations = {
+    es: {
+        title: "Consulta de Aula de Examen",
+        labelCourseCode: "Introduce el código de la asignatura:",
+        btnSubmit: "Consultar Aula",
+        resultNotFound: "Código de asignatura no encontrado.",
+        resultError: "Error al consultar los datos.",
+        resultPrompt: "Por favor, introduce un código de asignatura."
+    },
+    eu: {
+        title: "Azterketa Gelaren Kontsulta",
+        labelCourseCode: "Sartu irakasgaiaren kodea:",
+        btnSubmit: "Kontsultatu Gela",
+        resultNotFound: "Irakasgaiaren kodea ez da aurkitu.",
+        resultError: "Datuak kontsultatzerakoan errorea.",
+        resultPrompt: "Mesedez, sartu irakasgaiaren kode bat."
+    }
+};
+
+function setLanguage(language) {
+    document.getElementById('title').textContent = translations[language].title;
+    document.getElementById('labelCourseCode').textContent = translations[language].labelCourseCode;
+    document.getElementById('btnSubmit').textContent = translations[language].btnSubmit;
+}
+
 async function findClassroom() {
     const courseCode = document.getElementById('courseCode').value.trim();
     const resultDiv = document.getElementById('result');
+    const language = document.querySelector('input[name="language"]:checked').value;
 
     if (courseCode === "") {
-        resultDiv.textContent = "Por favor, introduce un código de asignatura.";
+        resultDiv.textContent = translations[language].resultPrompt;
         return;
     }
 
@@ -15,9 +41,12 @@ async function findClassroom() {
         if (entry) {
             resultDiv.textContent = `Asignatura: ${entry.asignatura}, Aula: ${entry.aula}`;
         } else {
-            resultDiv.textContent = "Código de asignatura no encontrado.";
+            resultDiv.textContent = translations[language].resultNotFound;
         }
     } catch (error) {
-        resultDiv.textContent = "Error al consultar los datos.";
+        resultDiv.textContent = translations[language].resultError;
     }
 }
+
+// Set default language to Spanish
+setLanguage('es');
