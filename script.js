@@ -18,6 +18,6 @@ async function findClassroom() {
             resultDiv.textContent = "Código de asignatura no encontrado / Irakasgaiaren kodea ez da aurkitu.";
         }
     } catch (error) {
-        resultDiv.textContent = "Error al consultar los datos / Datuak kontsultatzerakoan errorea.";
+        resultDiv.textContent = "Error al consultar los datos / Errorea datuak kontsultatzerakoan";
     }
 }
