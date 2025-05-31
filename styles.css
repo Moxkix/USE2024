@@ -34,14 +34,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
 label {
     display: block;
     margin-bottom: 10px;
