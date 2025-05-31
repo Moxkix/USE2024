@@ -4,7 +4,7 @@ async function findClassroom() {
     resultDiv.textContent = ""; // Limpia el resultado anterior
 
     if (!courseCode) {
-        resultDiv.textContent = "Por favor, introduce un código de asignatura / Mesedez, sartu irakasgaiaren kode bat.";
+        resultDiv.textContent = "Mesedez, sartu irakasgai baten kodea / Por favor, introduce un código de asignatura";
         return;
     }
 
@@ -16,9 +16,9 @@ async function findClassroom() {
         if (entry) {
             resultDiv.textContent = `Asignatura: ${entry.asignatura_es} / ${entry.asignatura_eu}, Aula: ${entry.aula_es} / ${entry.aula_eu}`;
         } else {
-            resultDiv.textContent = "Código de asignatura no encontrado / Irakasgaiaren kodea ez da aurkitu.";
+            resultDiv.textContent = "Irakasgaiaren kodea ez da aurkitu / Código de asignatura no encontrado";
         }
     } catch (error) {
-        resultDiv.textContent = "Error al consultar los datos / Datuak kontsultatzerakoan errorea.";
+        resultDiv.textContent = "Errorea datuak kontsultatzerakoan  / Error al consultar los datos";
     }
 }
