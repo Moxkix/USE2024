@@ -11,18 +11,8 @@
         <img src="blanco_mediano.jpg" alt="Logo Universidad del País Vasco / Euskal Herriko Unibertsitatea" class="logo">
         <h1>Consulta de Aula de Examen / Azterketa Gelaren Kontsulta</h1>
         <div id="form">
-            <label class="checkbox-label">
-                <input type="checkbox" id="euskeraTest" onchange="toggleFields()">
-                Prueba de Euskera / Euskara proba
-            </label>
-            <div id="standardFields">
-                <label for="courseCode">Introduce el código de la asignatura / Sartu irakasgaiaren kodea:</label>
-                <input type="text" id="courseCode" name="courseCode">
-            </div>
-            <div id="euskeraFields" style="display:none;">
-                <label for="lastName">Introduce los apellidos / Sartu abizenak:</label>
-                <input type="text" id="lastName" name="lastName">
-            </div>
+            <label for="courseCode">Introduce el código de la asignatura / Sartu irakasgaiaren kodea:</label>
+            <input type="text" id="courseCode" name="courseCode">
             <button type="button" onclick="findClassroom()">Consultar Aula / Kontsultatu Gela</button>
         </div>
         <div id="result"></div>
@@ -30,4 +20,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
