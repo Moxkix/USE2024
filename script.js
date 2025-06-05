@@ -32,24 +32,25 @@ async function findClassroom() {
 }
 
 async function updateCounter() {
-    const counterDiv = document.getElementById('counter');
-    if (!counterDiv) return;
+  const counterDiv = document.getElementById('counter');
+  if (!counterDiv) return;
+  if (!isAdmin()) {
+    counterDiv.style.display = 'none';
+    return;
+  }
+  counterDiv.style.display = 'block';
 
-    if (!isAdmin()) {
-        counterDiv.style.display = 'none';
-        return;
-    }
-
-    counterDiv.style.display = 'block';
-
-    try {
-        const response = await fetch('https://api.countapi.xyz/hit/use2025.github.io/visits');
-        const data = await response.json();
-        counterDiv.textContent = `Visitas: ${data.value}`;
-    } catch (error) {
-        console.error('Error al actualizar el contador', error);
-    }
+  try {
+    // Cambio: Counter API en lugar de CountAPI
+    const response = await fetch('https://api.counterapi.dev/hit/use2025.github.io/visits');
+    const data = await response.json();
+    counterDiv.textContent = `Visitas: ${data.value}`;
+  } catch (error) {
+    console.error('Error al actualizar el contador', error);
+    counterDiv.textContent = "No se pudo actualizar el contador";
+  }
 }
+
 
 function isAdmin() {
     return new URLSearchParams(window.location.search).get('admin') === '1';
