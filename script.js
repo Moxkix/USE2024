@@ -41,15 +41,16 @@ async function updateCounter() {
   counterDiv.style.display = 'block';
 
   try {
-    // Cambio: Counter API en lugar de CountAPI
-    const response = await fetch('https://api.counterapi.dev/hit/use2025.github.io/visits');
+    // Llamada directa al endpoint de Counter API
+    const response = await fetch('https://api.counterapi.dev/hit/use2025.github.io/visitas');
     const data = await response.json();
     counterDiv.textContent = `Visitas: ${data.value}`;
   } catch (error) {
     console.error('Error al actualizar el contador', error);
-    counterDiv.textContent = "No se pudo actualizar el contador";
+    counterDiv.textContent = 'No se pudo actualizar el contador';
   }
 }
+
 
 
 function isAdmin() {
