@@ -3,6 +3,7 @@ async function findClassroom() {
     const resultDiv = document.getElementById('result');
     resultDiv.textContent = ""; // Limpia el resultado anterior
 
+    
     if (!courseCode) {
         resultDiv.textContent = "Mesedez, sartu irakasgai baten kodea / Por favor, introduce un código de asignatura";
         return;
@@ -29,3 +30,29 @@ async function findClassroom() {
         resultDiv.textContent = "Errorea datuak kontsultatzerakoan / Error al consultar los datos";
     }
 }
+
+async function updateCounter() {
+    const counterDiv = document.getElementById('counter');
+    if (!counterDiv) return;
+
+    if (!isAdmin()) {
+        counterDiv.style.display = 'none';
+        return;
+    }
+
+    counterDiv.style.display = 'block';
+
+    try {
+        const response = await fetch('https://api.countapi.xyz/hit/use2025.github.io/visits');
+        const data = await response.json();
+        counterDiv.textContent = `Visitas: ${data.value}`;
+    } catch (error) {
+        console.error('Error al actualizar el contador', error);
+    }
+}
+
+function isAdmin() {
+    return new URLSearchParams(window.location.search).get('admin') === '1';
+}
+
+updateCounter();
